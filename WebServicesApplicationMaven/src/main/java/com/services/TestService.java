@@ -11,6 +11,7 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 /**
  *
  * @author mohamad
@@ -24,8 +25,8 @@ public class TestService {
     private Address testAdress;
     @WebMethod(operationName = "hello")
     @GET
-    @Path("/hello")
-    public String hello(@WebParam(name = "name") String txt) {
+    @Path("/hello/{name}")
+    public String hello(@PathParam("name") String txt) {
         testAdress=new Address(0, txt, txt, txt, 0, txt, txt, txt, txt);
         return "Hello " + txt + " !";
     }
